@@ -5,6 +5,7 @@ from config.config import *
 from sprites import *
 from app import *
 
+
 # Initialize Pygame
 pygame.init()
 
@@ -21,7 +22,8 @@ def main():
         screen.fill(WHITE)
 
         # Event handling
-        for event in pygame.event.get():
+        events = pygame.event.get()
+        for event in events:
             if event.type == pygame.QUIT:
                 running = False
             elif event.type == ENEMY_SPAWN:
@@ -34,18 +36,22 @@ def main():
                 towers.add(new_tower)
 
         # Update
-        towers.update()
-        enemies.update()
-        bullets.update()
+        screen_manager.handle_events(events)
+        screen_manager.update()
+        screen_manager.render(screen)
 
-        for tower in towers:
-            tower.attack(enemies, bullets)
+        # towers.update()
+        # enemies.update()
+        # bullets.update()
 
-        # Draw
-        chosen_map.draw()
-        towers.draw(screen)
-        enemies.draw(screen)
-        bullets.draw(screen)
+        # for tower in towers:
+        #     tower.attack(enemies, bullets)
+
+        # # Draw
+        # chosen_map.draw()
+        # towers.draw(screen)
+        # enemies.draw(screen)
+        # bullets.draw(screen)
 
         pygame.display.flip()
         clock.tick(FPS)

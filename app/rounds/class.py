@@ -6,7 +6,10 @@ class RoundCreator:
         self.sequence = []  # This will store the sequence of spawn events
 
     def add_pause(self, duration=1000):
-        self.sequence.append({'type': 'pause', 'duration': duration})
+        self.sequence.append({
+            'type': 'pause', 
+            'duration': duration
+        })
 
     def add_interval(self, enemy_name: str, spacing: int, duration: int):
         self.sequence.append({

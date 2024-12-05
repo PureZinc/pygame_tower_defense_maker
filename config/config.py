@@ -1,5 +1,8 @@
 import pygame
 
+# Main Config
+GAME_NAME = "Tower Defense Game"
+
 # Screen dimensions
 SCREEN_WIDTH = 800
 SCREEN_HEIGHT = 600
@@ -16,5 +19,5 @@ BACKGROUND = (200, 200, 200)
 
 # Initialize screen
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-pygame.display.set_caption("Tower Defense Game")
+pygame.display.set_caption(GAME_NAME)
 clock = pygame.time.Clock()
